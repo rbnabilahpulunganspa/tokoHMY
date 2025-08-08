@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Emas H. Muhammad Yunan Pulungan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #d4af37;
+            --secondary: #000;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gold-light: #f5e6b3;
+            --gold-dark: #b8860b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .gold-text {
+            color: var(--primary);
+        }
+        
+        .gold-bg {
+            background-color: var(--primary);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 3px solid var(--primary);
+        }
+        
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 1rem auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+        
+        .category-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .category-info h3 {
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .category-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .items-container {
+            display: none;
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .items-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .item-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .item-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .item-card:hover .item-image img {
+            transform: scale(1.1);
+        }
+        
+        .item-info {
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .item-info h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: var(--gold-dark);
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            padding: 0 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-button:hover {
+            background-color: var(--gold-dark);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: rgba(212, 175, 55, 0.1);
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 1rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h5 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.8rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .gallery-item img, .gallery-item iframe {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img, .gallery-item:hover iframe {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .info-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .order-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        .submit-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+        
+        .selected-item {
+            display: none;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .selected-item.active {
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .chart-container {
+            margin-bottom: 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .stat-card p {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .data-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .action-button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .action-button:hover {
+            background-color: var(--gold-dark);
+        }
+        
+        .password-prompt {
+            display: none;
+            margin-top: 1rem;
+        }
+        
+        .password-input {
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.5s;
+        }
+        
+        .delay-2 {
+            animation-delay: 1s;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast.success {
+            background-color: #28a745;
+        }
+        
+        .toast.error {
+            background-color: #dc3545;
+        }
+        
+        /* Video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://via.placeholder.com/150" alt="Logo Toko Emas" class="logo-img">
+                <div class="logo-text">Toko Emas H. Muhammad Yunan Pulungan</div>
+            </div>
+            <div class="tagline">Perhiasan Emas Berkualitas dengan Desain Elegan</div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" style="text-align: center;">
+                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Selamat Datang di Toko Emas Kami</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem;">Temukan koleksi perhiasan emas eksklusif dengan kualitas terbaik</p>
+                <a href="#products" class="submit-button" style="text-decoration: none;">Lihat Koleksi</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang <span class="gold-text">Kami</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p style="margin-bottom: 1rem;">Toko Emas H. Muhammad Yunan Pulungan telah berdiri sejak tahun 1995 dan menjadi salah satu toko perhiasan terpercaya di Kota Padangsidimpuan, Sumatera Utara.</p>
+                    <p style="margin-bottom: 1rem;">Kami menyediakan berbagai macam perhiasan emas berkualitas tinggi dengan desain yang elegan dan timeless. Setiap produk kami dibuat dengan ketelitian tinggi dan bahan terbaik.</p>
+                    <p style="margin-bottom: 1rem;">Kami berkomitmen untuk memberikan pengalaman berbelanja yang menyenangkan dengan pelayanan yang ramah dan profesional.</p>
+                    <div style="margin-top: 2rem;">
+                        <h3 style="margin-bottom: 1rem;">Jam Operasional:</h3>
+                        <p><i class="fas fa-clock gold-text" style="margin-right: 0.5rem;"></i> Setiap Hari: 10.00 - 17.00 WIB</p>
+                    </div>
+                </div>
+                <div class="about-image floating">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toko Emas">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Koleksi <span class="gold-text">Kami</span></h2>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Cari produk...">
+                <button id="searchButton" class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div id="categoriesContainer">
+                <div class="categories">
+                    <div class="category-card" data-category="gelang">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Gelang">
+                        </div>
+                        <div class="category-info">
+                            <h3>Gelang</h3>
+                            <p>Koleksi gelang emas dengan berbagai model</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-category="cincin">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1603974372035-96a3b6c6b8a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Cincin">
+                        </div>
+                        <div class="category-info">
+                            <h3>Cincin</h3>
+                            <p>Berbagai model cincin untuk pria dan wanita</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-category="kalung">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Kalung">
+                        </div>
+                        <div class="category-info">
+                            <h3>Kalung</h3>
+                            <p>Kalung emas dengan desain modern dan klasik</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-category="anting">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Anting">
+                        </div>
+                        <div class="category-info">
+                            <h3>Anting</h3>
+                            <p>Anting emas dengan berbagai model menarik</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-category="bros">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Bros">
+                        </div>
+                        <div class="category-info">
+                            <h3>Bros</h3>
+                            <p>Bros emas untuk melengkapi penampilan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-category="liontin">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Liontin">
+                        </div>
+                        <div class="category-info">
+                            <h3>Liontin</h3>
+                            <p>Liontin emas dengan berbagai bentuk unik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="itemsContainer" class="items-container">
+                <button id="backButton" class="back-button"><i class="fas fa-arrow-left"></i> Kembali ke Kategori</button>
+                <h3 id="categoryTitle" style="margin-bottom: 1.5rem;"></h3>
+                <div id="itemsGrid" class="items-grid"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Testimoni <span class="gold-text">Pelanggan</span></h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Sangat puas dengan pelayanan dan kualitas emas di toko ini. Desainnya unik dan harga bersaing."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah">
+                        </div>
+                        <div class="author-info">
+                            <h5>Sarah Wijaya</h5>
+                            <p>Pelanggan sejak 2020</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Emasnya berkualitas tinggi dan tahan lama. Sudah beberapa kali beli di sini dan selalu puas."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Budi">
+                        </div>
+                        <div class="author-info">
+                            <h5>Budi Santoso</h5>
+                            <p>Pelanggan sejak 2018</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Pelayanan ramah dan profesional. Toko emas rekomendasi untuk yang mencari perhiasan berkualitas."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dewi">
+                        </div>
+                        <div class="author-info">
+                            <h5>Dewi Lestari</h5>
+                            <p>Pelanggan sejak 2019</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Kualitas emasnya benar-benar terjamin. Tidak pernah kecewa berbelanja di sini."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Ahmad">
+                        </div>
+                        <div class="author-info">
+                            <h5>Ahmad Fauzi</h5>
+                            <p>Pelanggan sejak 2021</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Desain perhiasannya sangat unik dan elegan. Pelayanannya juga sangat memuaskan."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Rina">
+                        </div>
+                        <div class="author-info">
+                            <h5>Rina Amelia</h5>
+                            <p>Pelanggan sejak 2022</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Toko emas terbaik di kota ini. Koleksinya selalu update dan kualitasnya tidak diragukan lagi."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Doni">
+                        </div>
+                        <div class="author-info">
+                            <h5>Doni Pratama</h5>
+                            <p>Pelanggan sejak 2017</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Galeri <span class="gold-text">Momen</span></h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toko Emas">
+                    <div class="gallery-caption">
+                        <h3>Interior Toko</h3>
+                        <p>Suasana nyaman di dalam toko kami</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Video Toko</h3>
+                        <p>Tur virtual toko emas kami</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1603974372035-96a3b6c6b8a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Koleksi">
+                    <div class="gallery-caption">
+                        <h3>Koleksi Terbaru</h3>
+                        <p>Produk-produk terbaru kami</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Proses Pembuatan</h3>
+                        <p>Proses pembuatan perhiasan emas</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tim">
+                    <div class="gallery-caption">
+                        <h3>Tim Kami</h3>
+                        <p>Staf profesional yang siap melayani</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Workshop">
+                    <div class="gallery-caption">
+                        <h3>Workshop</h3>
+                        <p>Proses pembuatan perhiasan kami</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi <span class="gold-text">Kami</span></h2>
+            
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Lokasi</h3>
+                    <p>Jl. M H Thamrin No 61 Wek III<br>Kota Padangsidimpuan<br>Sumatera Utara</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Buka</h3>
+                    <p>Setiap Hari<br>10.00 - 17.00 WIB</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>+62 851-2105-3321</p>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.674445813196!2d99.2718473147536!3d1.3733599989991342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302cfe6b6a3b3a3b%3A0x5e2b3e5a3e5a3e5a!2sJl.%20M%20H%20Thamrin%20No%2061%2C%20Wek%20III%2C%20Kota%20Padangsidimpuan%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div class="order-form">
+                <h3 style="margin-bottom: 1.5rem; text-align: center;">Form Reservasi</h3>
+                
+                <div id="selectedItem" class="selected-item">
+                    <p><strong>Produk yang dipilih:</strong> <span id="selectedProductName"></span></p>
+                    <button id="changeProduct" class="back-button" style="margin-top: 0.5rem;">Ganti Produk</button>
+                </div>
+                
+                <form id="orderForm">
+                    <input type="hidden" id="productId">
+                    
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Alamat Lengkap</label>
+                        <textarea id="address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Usia</label>
+                        <input type="number" id="age" class="form-control" min="10" max="100" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation">Pekerjaan (opsional)</label>
+                        <input type="text" id="occupation" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Pesan Tambahan (opsional)</label>
+                        <textarea id="message" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button type="submit" class="submit-button"><i class="fab fa-whatsapp"></i> Reservasi via WhatsApp</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Toko Emas H. Muhammad Yunan Pulungan</h3>
+                    <p>Perhiasan emas berkualitas dengan desain elegan.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Link Cepat</h3>
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang Kami</a>
+                    <a href="#products">Produk</a>
+                    <a href="#testimonials">Testimoni</a>
+                    <a href="#contact">Kontak</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Jl. M H Thamrin No 61 Wek III, Padangsidimpuan</p>
+                    <p><i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i> +62 851-2105-3321</p>
+                    <p><i class="fas fa-clock" style="margin-right: 0.5rem;"></i> Buka Setiap Hari 10.00-17.00 WIB</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Toko Emas H. Muhammad Yunan Pulungan. All Rights Reserved.</p>
+                <p>Desain oleh Ahmad Ro'pat Tanjung</p>
+                <button id="adminButton" style="background: none; border: none; color: var(--primary); cursor: pointer; margin-top: 1rem;">Admin Panel</button>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Panel</h2>
+                <button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="password-prompt" id="passwordPrompt">
+                    <h3 style="margin-bottom: 1rem;">Masukkan Password</h3>
+                    <input type="password" id="adminPassword" class="password-input" placeholder="Password">
+                    <button id="submitPassword" class="action-button">Submit</button>
+                </div>
+                
+                <div id="adminContent" style="display: none;">
+                    <h3 style="margin-bottom: 1.5rem; text-align: center;">Statistik Pemesanan</h3>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Pemesanan</h3>
+                            <p id="totalOrders">0</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Kategori Favorit</h3>
+                            <p id="favoriteCategory">-</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Produk Favorit</h3>
+                            <p id="favoriteProduct">-</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Rata-rata Usia</h3>
+                            <p id="averageAge">0</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Kunjungan Hari Ini</h3>
+                            <p id="todayVisits">0</p>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3>Total Kunjungan</h3>
+                            <p id="totalVisits">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="productChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                    
+                    <div class="data-actions">
+                        <button id="exportData" class="action-button"><i class="fas fa-download"></i> Export Data</button>
+                        <button id="importData" class="action-button"><i class="fas fa-upload"></i> Import Data</button>
+                        <button id="resetData" class="action-button" style="background-color: #dc3545;"><i class="fas fa-trash"></i> Reset Data</button>
+                    </div>
+                    
+                    <input type="file" id="importFile" style="display: none;" accept=".json">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast"></div>
+    
+    <script>
+        // Data produk
+        const products = {
+            gelang: [
+                { id: 'gelang1', name: 'Gelang Classic', image: 'https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'gelang2', name: 'Gelang Twist', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'gelang3', name: 'Gelang Bunga', image: 'https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'gelang4', name: 'Gelang Mutiara', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
+            ],
+            cincin: [
+                { id: 'cincin1', name: 'Cincin Tunangan', image: 'https://images.unsplash.com/photo-1603974372035-96a3b6c6b8a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'cincin2', name: 'Cincin Couple', image: 'https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'cincin3', name: 'Cincin Permata', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'cincin4', name: 'Cincin Classic', image: 'https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
+            ],
+            kalung: [
+                { id: 'kalung1', name: 'Kalung Classic', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'kalung2', name: 'Kalung Mutiara', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'kalung3', name: 'Kalung Permata', image: 'https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'kalung4', name: 'Kalung Liontin', image: 'https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
+            ],
+            anting: [
+                { id: 'anting1', name: 'Anting Classic', image: 'https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'anting2', name: 'Anting Bunga', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'anting3', name: 'Anting Mutiara', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'anting4', name: 'Anting Permata', image: 'https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
+            ],
+            bros: [
+                { id: 'bros1', name: 'Bros Bunga', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'bros2', name: 'Bros Classic', image: 'https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'bros3', name: 'Bros Mutiara', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'bros4', name: 'Bros Permata', image: 'https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
+            ],
+            liontin: [
+                { id: 'liontin1', name: 'Liontin Hati', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'liontin2', name: 'Liontin Bunga', image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'liontin3', name: 'Liontin Mutiara', image: 'https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' },
+                { id: 'liontin4', name: 'Liontin Permata', image: 'https://images.unsplash.com/photo-1611591437281-4608be122683?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80' }
+            ]
+        };
+        
+        // Inisialisasi data jika belum ada di localStorage
+        function initializeData() {
+            if (!localStorage.getItem('orders')) {
+                localStorage.setItem('orders', JSON.stringify([]));
+            }
+            
+            if (!localStorage.getItem('visits')) {
+                const visits = {
+                    total: 0,
+                    daily: {},
+                    monthly: {},
+                    yearly: {}
+                };
+                localStorage.setItem('visits', JSON.stringify(visits));
+            }
+            
+            // Catat kunjungan hari ini
+            recordVisit();
+        }
+        
+        // Catat kunjungan
+        function recordVisit() {
+            const now = new Date();
+            const dateStr = now.toISOString().split('T')[0];
+            const monthStr = now.getFullYear() + '-' + (now.getMonth() + 1);
+            const yearStr = now.getFullYear().toString();
+            
+            let visits = JSON.parse(localStorage.getItem('visits'));
+            
+            // Total kunjungan
+            visits.total = (visits.total || 0) + 1;
+            
+            // Kunjungan harian
+            visits.daily[dateStr] = (visits.daily[dateStr] || 0) + 1;
+            
+            // Kunjungan bulanan
+            visits.monthly[monthStr] = (visits.monthly[monthStr] || 0) + 1;
+            
+            // Kunjungan tahunan
+            visits.yearly[yearStr] = (visits.yearly[yearStr] || 0) + 1;
+            
+            localStorage.setItem('visits', JSON.stringify(visits));
+        }
+        
+        // Tambahkan pesanan baru
+        function addOrder(order) {
+            const orders = JSON.parse(localStorage.getItem('orders'));
+            orders.push(order);
+            localStorage.setItem('orders', JSON.stringify(orders));
+        }
+        
+        // Dapatkan semua pesanan
+        function getOrders() {
+            return JSON.parse(localStorage.getItem('orders'));
+        }
+        
+        // Dapatkan statistik kunjungan
+        function getVisitStats() {
+            return JSON.parse(localStorage.getItem('visits'));
+        }
+        
+        // Tampilkan notifikasi toast
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show ' + type;
+            
+            setTimeout(() => {
+                toast.className = 'toast';
+            }, 3000);
+        }
+        
+        // Tampilkan produk berdasarkan kategori
+        function showProducts(category) {
+            const itemsContainer = document.getElementById('itemsContainer');
+            const itemsGrid = document.getElementById('itemsGrid');
+            const categoryTitle = document.getElementById('categoryTitle');
+            const categoriesContainer = document.getElementById('categoriesContainer');
+            
+            // Update judul kategori
+            categoryTitle.textContent = 'Koleksi ' + category.charAt(0).toUpperCase() + category.slice(1);
+            
+            // Kosongkan grid items
+            itemsGrid.innerHTML = '';
+            
+            // Tambahkan items ke grid
+            products[category].forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.className = 'item-card';
+                itemCard.dataset.id = item.id;
+                itemCard.dataset.category = category;
+                
+                itemCard.innerHTML = `
+                    <div class="item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                    </div>
+                `;
+                
+                itemsGrid.appendChild(itemCard);
+            });
+            
+            // Sembunyikan kategori, tampilkan items
+            categoriesContainer.style.display = 'none';
+            itemsContainer.classList.add('active');
+            
+            // Scroll ke items container
+            itemsContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            // Tambahkan event listener untuk item cards
+            document.querySelectorAll('.item-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    selectProduct(this.dataset.id, this.dataset.category);
+                });
+            });
+        }
+        
+        // Pilih produk untuk dipesan
+        function selectProduct(productId, category) {
+            const product = products[category].find(p => p.id === productId);
+            
+            document.getElementById('productId').value = productId;
+            document.getElementById('selectedProductName').textContent = product.name;
+            document.getElementById('selectedItem').classList.add('active');
+            
+            // Scroll ke form pemesanan
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Kembali ke tampilan kategori
+        function backToCategories() {
+            document.getElementById('categoriesContainer').style.display = 'block';
+            document.getElementById('itemsContainer').classList.remove('active');
+            document.getElementById('selectedItem').classList.remove('active');
+            
+            // Scroll ke produk section
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Cari produk
+        function searchProducts(query) {
+            query = query.toLowerCase().trim();
+            
+            if (query === '') {
+                showToast('Masukkan kata kunci pencarian', 'error');
+                return;
+            }
+            
+            const results = [];
+            
+            // Cari di semua kategori
+            for (const category in products) {
+                products[category].forEach(product => {
+                    if (product.name.toLowerCase().includes(query) || 
+                        category.toLowerCase().includes(query)) {
+                        results.push({ ...product, category });
+                    }
+                });
+            }
+            
+            if (results.length === 0) {
+                showToast('Tidak ditemukan produk dengan kata kunci tersebut', 'error');
+                return;
+            }
+            
+            // Tampilkan hasil pencarian
+            const itemsContainer = document.getElementById('itemsContainer');
+            const itemsGrid = document.getElementById('itemsGrid');
+            const categoryTitle = document.getElementById('categoryTitle');
+            const categoriesContainer = document.getElementById('categoriesContainer');
+            
+            // Update judul
+            categoryTitle.textContent = `Hasil Pencarian: "${query}"`;
+            
+            // Kosongkan grid items
+            itemsGrid.innerHTML = '';
+            
+            // Tambahkan hasil ke grid
+            results.forEach(item => {
+                const itemCard = document.createElement('div');
+                itemCard.className = 'item-card';
+                itemCard.dataset.id = item.id;
+                itemCard.dataset.category = item.category;
+                
+                itemCard.innerHTML = `
+                    <div class="item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="item-info">
+                        <h4>${item.name}</h4>
+                        <p style="font-size: 0.8rem; color: #666;">Kategori: ${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</p>
+                    </div>
+                `;
+                
+                itemsGrid.appendChild(itemCard);
+            });
+            
+            // Sembunyikan kategori, tampilkan items
+            categoriesContainer.style.display = 'none';
+            itemsContainer.classList.add('active');
+            
+            // Scroll ke items container
+            itemsContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            // Tambahkan event listener untuk item cards
+            document.querySelectorAll('.item-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    selectProduct(this.dataset.id, this.dataset.category);
+                });
+            });
+        }
+        
+        // Kirim pesanan via WhatsApp
+        function sendOrder(order) {
+            const phone = '+6285121053321';
+            const message = `Halo Toko Emas H. Muhammad Yunan Pulungan,\n\nSaya ingin memesan:\n\nProduk: ${order.productName}\nNama: ${order.name}\nAlamat: ${order.address}\nUsia: ${order.age}\nPekerjaan: ${order.occupation || '-'}\nPesan Tambahan: ${order.message || '-'}\n\nTerima kasih.`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Tampilkan statistik admin
+        function showAdminStats() {
+            const orders = getOrders();
+            const visits = getVisitStats();
+            
+            // Hitung statistik dasar
+            document.getElementById('totalOrders').textContent = orders.length;
+            document.getElementById('todayVisits').textContent = visits.daily[new Date().toISOString().split('T')[0]] || 0;
+            document.getElementById('totalVisits').textContent = visits.total;
+            
+            // Hitung kategori favorit
+            const categoryCounts = {};
+            orders.forEach(order => {
+                const category = order.productId.substring(0, order.productId.length - 1);
+                categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+            });
+            
+            let favoriteCategory = '-';
+            let maxCount = 0;
+            
+            for (const category in categoryCounts) {
+                if (categoryCounts[category] > maxCount) {
+                    maxCount = categoryCounts[category];
+                    favoriteCategory = category.charAt(0).toUpperCase() + category.slice(1);
+                }
+            }
+            
+            document.getElementById('favoriteCategory').textContent = favoriteCategory;
+            
+            // Hitung produk favorit
+            const productCounts = {};
+            orders.forEach(order => {
+                productCounts[order.productId] = (productCounts[order.productId] || 0) + 1;
+            });
+            
+            let favoriteProduct = '-';
+            maxCount = 0;
+            
+            for (const productId in productCounts) {
+                if (productCounts[productId] > maxCount) {
+                    maxCount = productCounts[productId];
+                    const category = productId.substring(0, productId.length - 1);
+                    const product = products[category].find(p => p.id === productId);
+                    favoriteProduct = product ? product.name : '-';
+                }
+            }
+            
+            document.getElementById('favoriteProduct').textContent = favoriteProduct;
+            
+            // Hitung rata-rata usia
+            let totalAge = 0;
+            orders.forEach(order => {
+                totalAge += parseInt(order.age);
+            });
+            
+            const averageAge = orders.length > 0 ? Math.round(totalAge / orders.length) : 0;
+            document.getElementById('averageAge').textContent = averageAge;
+            
+            // Siapkan data untuk chart
+            const categoryLabels = [];
+            const categoryData = [];
+            
+            for (const category in products) {
+                categoryLabels.push(category.charAt(0).toUpperCase() + category.slice(1));
+                categoryData.push(categoryCounts[category] || 0);
+            }
+            
+            const productLabels = [];
+            const productData = [];
+            
+            for (const category in products) {
+                products[category].forEach(product => {
+                    productLabels.push(product.name);
+                    productData.push(productCounts[product.id] || 0);
+                });
+            }
+            
+            // Buat chart kategori
+            const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+            new Chart(categoryCtx, {
+                type: 'bar',
+                data: {
+                    labels: categoryLabels,
+                    datasets: [{
+                        label: 'Jumlah Pemesanan per Kategori',
+                        data: categoryData,
+                        backgroundColor: 'rgba(212, 175, 55, 0.7)',
+                        borderColor: 'rgba(212, 175, 55, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Buat chart produk
+            const productCtx = document.getElementById('productChart').getContext('2d');
+            new Chart(productCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: productLabels,
+                    datasets: [{
+                        label: 'Jumlah Pemesanan per Produk',
+                        data: productData,
+                        backgroundColor: [
+                            'rgba(212, 175, 55, 0.7)',
+                            'rgba(184, 134, 11, 0.7)',
+                            'rgba(245, 230, 179, 0.7)',
+                            'rgba(210, 180, 140, 0.7)',
+                            'rgba(255, 215, 0, 0.7)',
+                            'rgba(218, 165, 32, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+            
+            // Buat chart usia
+            const ageGroups = {
+                '10-19': 0,
+                '20-29': 0,
+                '30-39': 0,
+                '40-49': 0,
+                '50+': 0
+            };
+            
+            orders.forEach(order => {
+                const age = parseInt(order.age);
+                if (age >= 10 && age <= 19) ageGroups['10-19']++;
+                else if (age >= 20 && age <= 29) ageGroups['20-29']++;
+                else if (age >= 30 && age <= 39) ageGroups['30-39']++;
+                else if (age >= 40 && age <= 49) ageGroups['40-49']++;
+                else if (age >= 50) ageGroups['50+']++;
+            });
+            
+            const ageCtx = document.getElementById('ageChart').getContext('2d');
+            new Chart(ageCtx, {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(ageGroups),
+                    datasets: [{
+                        label: 'Distribusi Usia Pelanggan',
+                        data: Object.values(ageGroups),
+                        backgroundColor: [
+                            'rgba(212, 175, 55, 0.7)',
+                            'rgba(184, 134, 11, 0.7)',
+                            'rgba(245, 230, 179, 0.7)',
+                            'rgba(210, 180, 140, 0.7)',
+                            'rgba(255, 215, 0, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+            
+            // Buat chart waktu kunjungan
+            const timeGroups = {
+                'Pagi (10:00-12:00)': 0,
+                'Siang (12:00-14:00)': 0,
+                'Sore (14:00-17:00)': 0
+            };
+            
+            orders.forEach(order => {
+                const hour = new Date(order.timestamp).getHours();
+                if (hour >= 10 && hour < 12) timeGroups['Pagi (10:00-12:00)']++;
+                else if (hour >= 12 && hour < 14) timeGroups['Siang (12:00-14:00)']++;
+                else if (hour >= 14 && hour < 17) timeGroups['Sore (14:00-17:00)']++;
+            });
+            
+            const timeCtx = document.getElementById('timeChart').getContext('2d');
+            new Chart(timeCtx, {
+                type: 'polarArea',
+                data: {
+                    labels: Object.keys(timeGroups),
+                    datasets: [{
+                        label: 'Waktu Kunjungan',
+                        data: Object.values(timeGroups),
+                        backgroundColor: [
+                            'rgba(212, 175, 55, 0.7)',
+                            'rgba(184, 134, 11, 0.7)',
+                            'rgba(245, 230, 179, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+        }
+        
+        // Export data
+        function exportData() {
+            const data = {
+                orders: getOrders(),
+                visits: getVisitStats(),
+                exportedAt: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `toko-emas-backup-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showToast('Data berhasil di-export', 'success');
+        }
+        
+        // Import data
+        function importData(file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    if (data.orders && data.visits) {
+                        localStorage.setItem('orders', JSON.stringify(data.orders));
+                        localStorage.setItem('visits', JSON.stringify(data.visits));
+                        showAdminStats();
+                        showToast('Data berhasil di-import', 'success');
+                    } else {
+                        showToast('Format file tidak valid', 'error');
+                    }
+                } catch (error) {
+                    showToast('Gagal memproses file', 'error');
+                    console.error(error);
+                }
+            };
+            
+            reader.readAsText(file);
+        }
+        
+        // Reset data
+        function resetData() {
+            if (confirm('Apakah Anda yakin ingin mereset semua data? Tindakan ini tidak dapat dibatalkan.')) {
+                localStorage.setItem('orders', JSON.stringify([]));
+                
+                const visits = {
+                    total: 0,
+                    daily: {},
+                    monthly: {},
+                    yearly: {}
+                };
+                localStorage.setItem('visits', JSON.stringify(visits));
+                
+                showAdminStats();
+                showToast('Data berhasil direset', 'success');
+            }
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeData();
+            
+            // Kategori click
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    showProducts(this.dataset.category);
+                });
+            });
+            
+            // Back button
+            document.getElementById('backButton').addEventListener('click', backToCategories);
+            
+            // Change product button
+            document.getElementById('changeProduct').addEventListener('click', function() {
+                document.getElementById('selectedItem').classList.remove('active');
+                backToCategories();
+            });
+            
+            // Search button
+            document.getElementById('searchButton').addEventListener('click', function() {
+                const query = document.getElementById('searchInput').value;
+                searchProducts(query);
+            });
+            
+            // Search input enter key
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = this.value;
+                    searchProducts(query);
+                }
+            });
+            
+            // Order form submit
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const productId = document.getElementById('productId').value;
+                if (!productId) {
+                    showToast('Silakan pilih produk terlebih dahulu', 'error');
+                    return;
+                }
+                
+                const category = productId.substring(0, productId.length - 1);
+                const product = products[category].find(p => p.id === productId);
+                
+                const order = {
+                    productId: productId,
+                    productName: product.name,
+                    name: document.getElementById('name').value,
+                    address: document.getElementById('address').value,
+                    age: document.getElementById('age').value,
+                    occupation: document.getElementById('occupation').value,
+                    message: document.getElementById('message').value,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Tambahkan ke localStorage
+                addOrder(order);
+                
+                // Kirim via WhatsApp
+                sendOrder(order);
+                
+                // Reset form
+                this.reset();
+                document.getElementById('selectedItem').classList.remove('active');
+                document.getElementById('productId').value = '';
+                
+                showToast('Pesanan berhasil dikirim', 'success');
+            });
+            
+            // Admin button
+            document.getElementById('adminButton').addEventListener('click', function() {
+                document.getElementById('adminModal').style.display = 'block';
+                document.getElementById('passwordPrompt').style.display = 'block';
+                document.getElementById('adminContent').style.display = 'none';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close modal button
+            document.querySelector('.close-button').addEventListener('click', function() {
+                document.getElementById('adminModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Modal click outside
+            document.getElementById('adminModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Submit password
+            document.getElementById('submitPassword').addEventListener('click', function() {
+                const password = document.getElementById('adminPassword').value;
+                
+                if (password === '12345678') {
+                    document.getElementById('passwordPrompt').style.display = 'none';
+                    document.getElementById('adminContent').style.display = 'block';
+                    showAdminStats();
+                } else {
+                    showToast('Password salah', 'error');
+                }
+            });
+            
+            // Admin password enter key
+            document.getElementById('adminPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('submitPassword').click();
+                }
+            });
+            
+            // Export data
+            document.getElementById('exportData').addEventListener('click', exportData);
+            
+            // Import data
+            document.getElementById('importData').addEventListener('click', function() {
+                document.getElementById('importFile').click();
+            });
+            
+            document.getElementById('importFile').addEventListener('change', function(e) {
+                if (e.target.files.length > 0) {
+                    importData(e.target.files[0]);
+                    e.target.value = ''; // Reset input file
+                }
+            });
+            
+            // Reset data
+            document.getElementById('resetData').addEventListener('click', resetData);
+            
+            // Smooth scroll for nav links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

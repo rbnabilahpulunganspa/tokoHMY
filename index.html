@@ -191,6 +191,7 @@
         .category-image {
             height: 150px;
             overflow: hidden;
+            position: relative;
         }
         
         .category-image img {
@@ -252,11 +253,16 @@
         }
         
         .item-image {
-            height: 130px;
+            height: 0;
+            padding-bottom: 100%; /* Membuat rasio 1:1 */
             overflow: hidden;
+            position: relative;
         }
         
         .item-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -883,7 +889,7 @@
     <header>
         <div class="container">
             <div class="logo-container">
-                <img src="logo.png" alt="Logo Toko Emas" class="logo-img">
+                <img src="https://via.placeholder.com/150" alt="Logo Toko Emas" class="logo-img">
                 <div class="logo-text">Toko Emas H. Muhammad Yunan Pulungan</div>
             </div>
             <div class="tagline">Perhiasan Emas Berkualitas dengan Desain Elegan</div>
@@ -927,7 +933,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="latar.jpg" alt="Toko Emas">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toko Emas">
                 </div>
             </div>
         </div>
@@ -946,7 +952,7 @@
                 <div class="categories">
                     <div class="category-card" data-category="gelang">
                         <div class="category-image">
-                            <img src="gelang.jpg" alt="Gelang">
+                            <img src="gu.jpg" alt="Gelang">
                         </div>
                         <div class="category-info">
                             <h3>Gelang</h3>
@@ -956,7 +962,7 @@
                     
                     <div class="category-card" data-category="cincin">
                         <div class="category-image">
-                            <img src="cincin.jpg" alt="Cincin">
+                            <img src="cu.jpg" alt="Cincin">
                         </div>
                         <div class="category-info">
                             <h3>Cincin</h3>
@@ -966,7 +972,7 @@
                     
                     <div class="category-card" data-category="kalung">
                         <div class="category-image">
-                            <img src="kalung.jpg" alt="Kalung">
+                            <img src="ku.jpg" alt="Kalung">
                         </div>
                         <div class="category-info">
                             <h3>Kalung</h3>
@@ -976,7 +982,7 @@
                     
                     <div class="category-card" data-category="anting">
                         <div class="category-image">
-                            <img src="anting.jpg" alt="Anting">
+                            <img src="au.jpg" alt="Anting">
                         </div>
                         <div class="category-info">
                             <h3>Anting</h3>
@@ -986,7 +992,7 @@
                     
                     <div class="category-card" data-category="bros">
                         <div class="category-image">
-                            <img src="bros.jpg" alt="Bros">
+                            <img src="bu.jpg" alt="Bros">
                         </div>
                         <div class="category-info">
                             <h3>Bros</h3>
@@ -1116,7 +1122,7 @@
             <h2 class="section-title">Galeri <span class="gold-text">Momen</span></h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="interior.jpg" alt="Toko Emas">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toko Emas">
                     <div class="gallery-caption">
                         <h3>Interior Toko</h3>
                         <p>Suasana nyaman di dalam toko kami</p>
@@ -1125,7 +1131,7 @@
                 
                 <div class="gallery-item">
                     <div class="video-container">
-                        <iframe src="turtoko.jpg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="gallery-caption">
                         <h3>Video Toko</h3>
@@ -1134,7 +1140,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="koleksi.jpg" alt="Koleksi">
+                    <img src="https://images.unsplash.com/photo-1603974372035-96a3b6c6b8a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Koleksi">
                     <div class="gallery-caption">
                         <h3>Koleksi Terbaru</h3>
                         <p>Produk-produk terbaru kami</p>
@@ -1143,7 +1149,7 @@
                 
                 <div class="gallery-item">
                     <div class="video-container">
-                        <iframe src="prosesbuat.jpg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="gallery-caption">
                         <h3>Proses Pembuatan</h3>
@@ -1152,7 +1158,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="tim.jpg" alt="Tim">
+                    <img src="https://images.unsplash.com/photo-1611594606051-9ab0e13c6ca3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Tim">
                     <div class="gallery-caption">
                         <h3>Tim Kami</h3>
                         <p>Staf profesional yang siap melayani</p>
@@ -1160,7 +1166,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="proses.jpg" alt="Workshop">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Workshop">
                     <div class="gallery-caption">
                         <h3>Workshop</h3>
                         <p>Proses pembuatan perhiasan kami</p>
@@ -1172,32 +1178,6 @@
     
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Hubungi <span class="gold-text">Kami</span></h2>
-            
-            <div class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Lokasi</h3>
-                    <p>Jl. M H Thamrin No 61 Wek III<br>Kota Padangsidimpuan<br>Sumatera Utara</p>
-                </div>
-                
-                <div class="info-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Jam Buka</h3>
-                    <p>Setiap Hari<br>10.00 - 17.00 WIB</p>
-                </div>
-                
-                <div class="info-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <p>+62 851-2105-3321</p>
-                </div>
-            </div>
-            
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.674445813196!2d99.2718473147536!3d1.3733599989991342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302cfe6b6a3b3a3b%3A0x5e2b3e5a3e5a3e5a!2sJl.%20M%20H%20Thamrin%20No%2061%2C%20Wek%20III%2C%20Kota%20Padangsidimpuan%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            
             <div class="order-form">
                 <h3>Form Reservasi</h3>
                 
@@ -1230,12 +1210,38 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Pesan Tambahan (boleh diisi atau dikosongkan)</label>
+                        <label for="message">Pesan Tambahan (opsional)</label>
                         <textarea id="message" class="form-control" rows="3"></textarea>
                     </div>
                     
                     <button type="submit" class="submit-button"><i class="fab fa-whatsapp"></i> Reservasi via WhatsApp</button>
                 </form>
+            </div>
+
+            <h2 class="section-title">Hubungi <span class="gold-text">Kami</span></h2>
+            
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Lokasi</h3>
+                    <p>Jl. M H Thamrin No 61 Wek III<br>Kota Padangsidimpuan<br>Sumatera Utara</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Jam Buka</h3>
+                    <p>Setiap Hari<br>10.00 - 17.00 WIB</p>
+                </div>
+                
+                <div class="info-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>+62 851-2105-3321</p>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.674445813196!2d99.2718473147536!3d1.3733599989991342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302cfe6b6a3b3a3b%3A0x5e2b3e5a3e5a3e5a!2sJl.%20M%20H%20Thamrin%20No%2061%2C%20Wek%20III%2C%20Kota%20Padangsidimpuan%2C%20Sumatera%20Utara!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -1247,9 +1253,9 @@
                     <h3>Toko Emas H. Muhammad Yunan Pulungan</h3>
                     <p>Perhiasan emas berkualitas dengan desain elegan.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/tokomasyunanpulungan_official/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/tokomasyunanpulungan_official/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/tokomasyunanpulungan_official/"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -1272,7 +1278,7 @@
             
             <div class="copyright">
                 <p>&copy; 2025 Toko Emas H. Muhammad Yunan Pulungan. All Rights Reserved.</p>
-                <p>Design by Ahmad Ro'pat Tanjung</p>
+                <p>Desain oleh Ahmad Ro'pat Tanjung</p>
                 <button id="adminButton" style="background: none; border: none; color: var(--primary); cursor: pointer; margin-top: 0.5rem; font-size: 0.9rem;">Admin Panel</button>
             </div>
         </div>
@@ -1360,36 +1366,54 @@
         // Data produk
         const products = {
             gelang: [
-                { id: 'gelang1', name: 'Gelang Coco ', image: 'gelang.jpg' },
-                { id: 'gelang2', name: 'Gelang Putar', image: 'gelang.jpg' },
-                { id: 'gelang3', name: 'Gelang Bunga Clover', image: 'gelang.jpg' },
-                { id: 'gelang4', name: 'Gelang Rupiah Matahari', image: 'gelang.jpg' },
-                { id: 'gelang5', name: 'Gelang Bambu', image: 'gelang.jpg' },
-                { id: 'gelang6', name: 'Gelang Rantai Segi', image: 'gelang.jpg' },
+                { id: 'gelang1', name: 'Gelang Coco ', image: 'g1.jpg' },
+                { id: 'gelang2', name: 'Gelang Putar', image: 'g2.jpg' },
+                { id: 'gelang3', name: 'Gelang Bunga Clover', image: 'g3.jpg' },
+                { id: 'gelang4', name: 'Gelang Rupiah Matahari', image: 'g4.jpg' },
+                { id: 'gelang5', name: 'Gelang Bambu', image: 'g5.jpg' },
+                { id: 'gelang6', name: 'Gelang Rantai Segi', image: 'g6.jpg' },
+                { id: 'gelang7', name: 'Gelang Rantai Segi', image: 'g7.jpg' },
+                { id: 'gelang8', name: 'Gelang Rantai Segi', image: 'g8.jpg' }
             ],
             cincin: [
-                { id: 'cincin1', name: 'Cincin Coco', image: 'cincin.jpg' },
-                { id: 'cincin2', name: 'Cincin Clover', image: 'cincin.jpg' },
-                { id: 'cincin3', name: 'Cincin Putar', image: 'cincin.jpg' },
-                { id: 'cincin4', name: 'Cincin Apel', image: 'cincin.jpg' }
+                { id: 'cincin1', name: 'Cincin Coco', image: 'c1.jpg' },
+                { id: 'cincin2', name: 'Cincin Clover', image: 'c2.jpg' },
+                { id: 'cincin3', name: 'Cincin Putar', image: 'c3.jpg' },
+                { id: 'cincin4', name: 'Cincin Putar', image: 'c4.jpg' },
+                { id: 'cincin5', name: 'Cincin Putar', image: 'c5.jpg' },
+                { id: 'cincin6', name: 'Cincin Putar', image: 'c6.jpg' },
+                { id: 'cincin7', name: 'Cincin Putar', image: 'c7.jpg' },
+                { id: 'cincin8', name: 'Cincin Apel', image: 'c8.jpg' }
             ],
             kalung: [
-                { id: 'kalung1', name: 'Kalung Nama-Letter', image: 'kalung.jpg' },
-                { id: 'kalung2', name: 'Kalung Mutiara', image: 'kalung.jpg' },
-                { id: 'kalung3', name: 'Kalung Permata', image: 'kalung.jpg' },
-                { id: 'kalung4', name: 'Kalung Liontin', image: 'kalung.jpg' }
+                { id: 'kalung1', name: 'Kalung Nama-Letter', image: 'k1.jpg' },
+                { id: 'kalung2', name: 'Kalung Mutiara', image: 'k2.jpg' },
+                { id: 'kalung3', name: 'Kalung Permata', image: 'k3.jpg' },
+                { id: 'kalung4', name: 'Kalung Permata', image: 'k4.jpg' },
+                { id: 'kalung5', name: 'Kalung Permata', image: 'k5.jpg' },
+                { id: 'kalung6', name: 'Kalung Permata', image: 'k6.jpg' },
+                { id: 'kalung7', name: 'Kalung Permata', image: 'k7.jpg' },
+                { id: 'kalung8', name: 'Kalung Liontin', image: 'k8.jpg' }
             ],
             anting: [
-                { id: 'anting1', name: 'Anting Classic', image: 'anting.jpg' },
-                { id: 'anting2', name: 'Anting Bunga', image: 'anting.jpg' },
-                { id: 'anting3', name: 'Anting Mutiara', image: 'anting.jpg' },
-                { id: 'anting4', name: 'Anting Permata', image: 'anting.jpg' }
+                { id: 'anting1', name: 'Anting Classic', image: 'a1.jpg' },
+                { id: 'anting2', name: 'Anting Bunga', image: 'a2.jpg' },
+                { id: 'anting3', name: 'Anting Mutiara', image: 'a3.jpg' },
+                { id: 'anting4', name: 'Anting Mutiara', image: 'a4.jpg' },
+                { id: 'anting5', name: 'Anting Mutiara', image: 'a5.jpg' },
+                { id: 'anting6', name: 'Anting Mutiara', image: 'a6.jpg' },
+                { id: 'anting7', name: 'Anting Mutiara', image: 'a7.jpg' },
+                { id: 'anting8', name: 'Anting Permata', image: 'a8jpg' }
             ],
             bros: [
-                { id: 'bros1', name: 'Bros Bunga', image: 'bros.jpg' },
-                { id: 'bros2', name: 'Bros Classic', image: 'bros.jpg' },
-                { id: 'bros3', name: 'Bros Mutiara', image: 'bros.jpg' },
-                { id: 'bros4', name: 'Bros Permata', image: 'bros.jpg' }
+                { id: 'bros1', name: 'Bros Bunga', image: 'b1.jpg' },
+                { id: 'bros2', name: 'Bros Classic', image: 'b2.jpg' },
+                { id: 'bros3', name: 'Bros Mutiara', image: 'b3.jpg' },
+                { id: 'bros4', name: 'Bros Mutiara', image: 'b4.jpg' },
+                { id: 'bros5', name: 'Bros Mutiara', image: 'b5.jpg' },
+                { id: 'bros6', name: 'Bros Mutiara', image: 'b6.jpg' },
+                { id: 'bros7', name: 'Bros Mutiara', image: 'b7.jpg' },
+                { id: 'bros8', name: 'Bros Permata', image: 'b8.jpg' }
             ],
             liontin: [
                 { id: 'liontin1', name: 'Liontin Rupiah Bunga Ros', image: 'l1.jpg' },
@@ -1398,7 +1422,8 @@
                 { id: 'liontin4', name: 'Liontin Rupiah Serikit', image: 'l4.jpg' },
                 { id: 'liontin5', name: 'Liontin Rupiah Berlian', image: 'l5.jpg' },
                 { id: 'liontin6', name: 'Liontin Rupiah Mahkota', image: 'l6.jpg' },
-                { id: 'liontin7', name: 'Liontin Rupiah Berlian Klasik', image: 'l7.jpg' }
+                { id: 'liontin8', name: 'Liontin Rupiah Tali Timba', image: 'l7.jpg' },
+                { id: 'liontin7', name: 'Liontin Rupiah Berlian Klasik', image: 'l8.jpg' }
             ]
         };
         
@@ -1627,7 +1652,36 @@
         // Kirim pesanan via WhatsApp
         function sendOrder(order) {
             const phone = '+6285121053321';
-            const message = `Halo Toko Emas H. Muhammad Yunan Pulungan,\n\nSaya ingin memesan:\n\nProduk: ${order.productName}\nNama: ${order.name}\nAlamat: ${order.address}\nUsia: ${order.age}\nPekerjaan: ${order.occupation || '-'}\nPesan Tambahan: ${order.message || '-'}\n\nTerima kasih.`;
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('id-ID', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            const message = `✨ *RESERVASI TOKO EMAS* ✨
+            
+📅 *Tanggal Reservasi*: ${formattedDate}
+🏠 *Toko Emas H. Muhammad Yunan Pulungan*
+📍 Jl. M H Thamrin No 61 Wek III, Padangsidimpuan
+
+📋 *Detail Pesanan*:
+🛍️ Produk: ${order.productName}
+👤 Nama: ${order.name}
+🏠 Alamat: ${order.address}
+🎂 Usia: ${order.age}
+💼 Pekerjaan: ${order.occupation || '-'}
+📝 Pesan Tambahan: ${order.message || '-'}
+
+💬 *Catatan*:
+Silakan balas pesan ini untuk konfirmasi lebih lanjut. Terima kasih atas kepercayaan Anda!
+
+📞 *Hubungi Kami*:
+WhatsApp: +62 851-2105-3321
+Jam Buka: Setiap Hari 10.00-17.00 WIB`;
             
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
